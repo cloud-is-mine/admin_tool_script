@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Appvizer Helper
 // @namespace    https://appvizer.fr
-// @version      2024-08-16.a
+// @version      v1.0.0-beta
 // @description  Admin tool
 // @author       Appvizer Engineering
 // @match        https://appvizer.fr/*
@@ -194,6 +194,7 @@ const buildMenu = async () => {
 
     switch (pageType) {
         case 'Article':
+        case 'Resource':
         case 'News':
             await buildArticleMenu(menuEl)
             break;
