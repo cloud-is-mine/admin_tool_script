@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Appvizer Helper
 // @namespace    https://appvizer.fr
-// @version      2024-08-16
+// @version      2024-08-16.a
 // @description  Admin tool
 // @author       Appvizer Engineering
 // @match        https://appvizer.fr/*
