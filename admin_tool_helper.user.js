@@ -25,8 +25,8 @@
 
 
 const apiCall = async (query) => {
-    // todo manage env
-    const res = await fetch('https://api.appvizer.com/graphql', {
+    const apiDomain = location.hostname.includes('sandbox') ? 'sandbox.api.appvizer.net' : 'api.appvizer.com';
+    const res = await fetch(`https://${apiDomain}/graphql`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
