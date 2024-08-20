@@ -10,7 +10,7 @@
 // @match        https://appvizer.com/*
 // @match        https://www.appvizer.com/*
 // @match        https://appvizer.es/*
-// @match        https://www.appvizer.es/*//
+// @match        https://www.appvizer.es/*
 // @match        https://appvizer.de/*
 // @match        https://www.appvizer.de/*
 // @match        https://appvizer.it/*
@@ -102,10 +102,10 @@ const createButton = (parent, name, action) => {
 
 const buildMenu = async () => {
     const isAdmin = await checkUser();
-    // const isVenus = !!document.querySelector('#serverApp-state');
-    // if (isVenus) {
-    //     return;
-    // }
+    const isVenus = !!document.querySelector('#serverApp-state');
+    if (isVenus) {
+        return;
+    }
     if (!isAdmin) {
         console.log('To perform admin operations, you need to log in');
         return;
