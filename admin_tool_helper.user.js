@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Appvizer Helper
 // @namespace    https://appvizer.fr
-// @version      v1.0.0-beta
+// @version      v1.0.0
 // @description  Admin tool
 // @author       Appvizer Engineering
 // @match        https://appvizer.fr/*
@@ -19,7 +19,7 @@
 // @match        https://www.appvizer.co.uk/*
 // @match        https://appvizer.com.br/*
 // @match        https://www.appvizer.com.br/*
-// @homepageURL  https://gist.github.com/cloud-is-mine/8c967ff4035f171dbfb8d12d6b7ce9a7
+// @homepageURL  https://github.com/cloud-is-mine/admin_tool_script/blob/main/admin_tool_helper.user.js
 // @grant        none
 // ==/UserScript==
 
@@ -102,8 +102,9 @@ const createButton = (parent, name, action) => {
 
 const buildMenu = async () => {
     const isAdmin = await checkUser();
-    const isVenus = !!document.querySelector('#serverApp-state');
-    if (isVenus) {
+    const isVenusOrClient2 = !!document.querySelector('cim-root');
+    const isClient1 = !!document.querySelector('.ng-scope');
+    if (isVenusOrClient2 || isClient1) {
         return;
     }
     if (!isAdmin) {
