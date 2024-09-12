@@ -197,6 +197,7 @@ const buildMenu = async () => {
         case 'Article':
         case 'Resource':
         case 'News':
+        case 'Author':
             await buildArticleMenu(menuEl)
             break;
         case 'Home':
