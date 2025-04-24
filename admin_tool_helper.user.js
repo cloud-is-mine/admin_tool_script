@@ -174,6 +174,16 @@ const buildMenu = async () => {
         createEditInDatoButton(menuEl, res.magazineCategory?.administrationUrl)
     }
 
+    const buildSoftwareMenu = async (menuEl) => {
+        createRefreshCacheButton(menuEl);
+        const softwareId = document.querySelector('meta[name=appvizer-software-id]')?.getAttribute('content');
+        if (!softwareId) {
+            return
+        }
+
+        createButton(menuEl, 'Edit in BO >', () => window.open(`https://${window.location.host}/backoffice-service-details/${softwareId}/service`, '_blank'));
+    }
+
     const createRefreshCacheButton = async (menuEl) => {
         createButton(menuEl, 'Refresh Cache', refreshCache)
     }
@@ -197,7 +207,6 @@ const buildMenu = async () => {
         case 'Article':
         case 'Resource':
         case 'News':
-        case 'Author':
             await buildArticleMenu(menuEl)
             break;
         case 'Home':
@@ -205,6 +214,9 @@ const buildMenu = async () => {
             break;
         case 'Category':
             await buildCategoryMenu(menuEl);
+            break;
+        case 'Software':
+            await buildSoftwareMenu(menuEl);
             break;
         default:
             createRefreshCacheButton(menuEl);
